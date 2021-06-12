@@ -1,32 +1,32 @@
-# Crear archivo config y env
-Copie el archivo src/config/config.json.example a src/config/config.json
+# Create config and env file
+Copy the file .env.example to .env
 Copie el archivo .env.example a .env
-Comando:
+Command:
 ```
 cp src/config/config.json.example src/config/config.json
 cp .env .env.example
 ```
 
-# Configure la secret key
-Edite el archivo .env seteando su propia key
+# Configure the secret key for JWT
+Edit the file .env with your own secret key
 
-# Crear base de datos
-Configurar los datos de conexión en config/config.json
+# Create the database
+Create the database and configure the user, passwords, and database name in the file config/config.json
 
-# Instalar project
+# Install the node modules
 ```
 npm install
 ```
 
-# Instalar base de datos
+# Run the migrations
 ```
 npm run installDb
 ```
 
-# Ejecutar servidor
+# Run the server
 ```
 npm start
 ```
 
 # Postman
-En el archivo: ServersMeli.postman_collection.json se encuentra una colección de Postman para llamar a los endpoints
+The file TrueNorth.postman_collection.json contains a Postman collection to call all the endpoints
