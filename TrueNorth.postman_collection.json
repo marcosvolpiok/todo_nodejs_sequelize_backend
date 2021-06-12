@@ -72,7 +72,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYWlsIjoiZXhhbXBsZUBleGFtcGxlLmNvbTQiLCJpZFVzZXIiOjQsImlhdCI6MTYyMzUxMjUzOCwiZXhwIjoyMDU0NTExMjUzOH0.Ix53ikCV3nNZz5sF2_yu3pIo1cQYZg8siQVqdNTOckA",
+							"value": "PUT-TOKEN-HERE",
 							"type": "string"
 						}
 					]
@@ -101,7 +101,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYWlsIjoiZXhhbXBsZUBleGFtcGxlLmNvbTQiLCJpZFVzZXIiOjQsImlhdCI6MTYyMzUxMjUzOCwiZXhwIjoyMDU0NTExMjUzOH0.Ix53ikCV3nNZz5sF2_yu3pIo1cQYZg8siQVqdNTOckA",
+							"value": "PUT-TOKEN-HERE",
 							"type": "string"
 						}
 					]
@@ -110,7 +110,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"description\": \"example\"}",
+					"raw": "{\"description\": \"Example 1234\"}",
 					"options": {
 						"raw": {
 							"language": "json"
