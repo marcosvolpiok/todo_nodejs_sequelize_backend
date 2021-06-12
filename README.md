@@ -1,3 +1,10 @@
+# Crear archivo config
+Copie el archivo src/config/config.json.example a src/config/config.json
+Comando:
+```
+cp src/config/config.json.example src/config/config.json
+```
+
 # Crear base de datos
 Configurar los datos de conexión en config/config.json
 
