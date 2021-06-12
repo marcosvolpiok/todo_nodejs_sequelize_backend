@@ -1,3 +1,6 @@
+# Crear base de datos
+Configurar los datos de conexión en config/config.json
+
 # Instalar project
 ```
 npm install
