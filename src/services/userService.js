@@ -16,8 +16,6 @@ class userService {
             mail: req.body.mail
         });
         
-        delete user.mail;
-        console.log('xxx');
         return user;
     }
 
