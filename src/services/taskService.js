@@ -3,8 +3,8 @@ class TaskService {
     this.taskRepository=taskRepository;
   }
 
-  list = async () => {
-    const tasks=await this.taskRepository.list();
+  list = async (res) => {
+    const tasks=await this.taskRepository.listByUserId(res);
     return tasks;
   }
 

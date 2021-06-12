@@ -8,9 +8,19 @@ class taskRepository extends Interface(baseRepository) {
     }
 
     async list () {
-        const tasks = await this.Task.findAll({ attributes: ['id', 'description', 'status'] });
+    }
+
+    async listByUserId (res) {        
+        const tasks = await this.Task.findAll({ 
+            attributes: ['id', 'description', 'status'],
+            where: {
+                id_user: res.userData.idUser
+            }
+     });
         return tasks;
     }
+
+    
 
     async add (params) {
     }

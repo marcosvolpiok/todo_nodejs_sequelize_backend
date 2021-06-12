@@ -5,7 +5,7 @@ class taskController{
 
     list = async (req, res) => {
         try{
-            const tasks=await this.taskService.list();
+            const tasks=await this.taskService.list(res);
             res.json(tasks);
         }catch(e){
             res.status(500).json({message: e.message})
