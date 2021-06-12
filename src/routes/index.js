@@ -5,7 +5,7 @@ const {
     serverRepositoryOb,
     serverControllerOb,
     messageControllerOb,
-    tasksControllerOb
+    taskControllerOb
 } = require('../dependencies/');
 
 router.get('/servers/', serverControllerOb.list);
@@ -16,8 +16,8 @@ router.get('/messagesByServer/:id', listByServer, messageControllerOb.listByServ
 router.get('/messages/static', messageControllerOb.static);
 router.post('/messageByMessage', messageControllerOb.listByMessage);
 
-router.get('/tasks/', tasksControllerOb.list);
-router.put('/tasks/', tasksControllerOb.add);
+router.get('/tasks/', taskControllerOb.list);
+router.put('/tasks/', taskControllerOb.add);
 
 function listByServer(req, res, next){
     const schema = Joi.object({

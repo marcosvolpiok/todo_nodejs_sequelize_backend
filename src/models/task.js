@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   Task.init({
     id: {type: DataTypes.SMALLINT, primaryKey: true, autoIncrement: true, allowNull: false},
     description: {type: DataTypes.INTEGER, allowNull: false},
-    status: {type: DataTypes.INTEGER, allowNull: false},
+    status: {type: DataTypes.INTEGER, allowNull: false, defaultValue: 0},
   }, {
     sequelize,
     modelName: 'Task',
