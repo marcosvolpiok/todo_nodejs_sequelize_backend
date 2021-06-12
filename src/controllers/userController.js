@@ -14,8 +14,8 @@ class userController{
 
   login = async (req, res) => { 
     try{
-      const user=await this.userService.login(req);
-      res.json(user);
+      const user=await this.userService.login(req);      
+      res.status(user.httpCode).send(user);
     }catch(e){
       res.status(500).json({message: e.message})
     }

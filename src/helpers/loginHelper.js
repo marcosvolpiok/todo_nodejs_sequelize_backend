@@ -4,9 +4,9 @@ const jwt = require('jsonwebtoken');
 const verifyPassword = async (user, req)=>{
     const result = await bcrypt.compare(req.body.password, user.password);
     if(result){
-        return getToken(user);
+        return {...getToken(user), httpCode: 200};
     }else{
-        return {status: 'LOGIN_WRONG', message: 'Password or mail wrong'};
+        return {status: 'LOGIN_WRONG', message: 'User or password wrong', httpCode: 401};
     }
 }
 

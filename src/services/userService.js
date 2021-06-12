@@ -25,7 +25,7 @@ class userService {
         if(user){
             userLoged = await this.loginHelper.verifyPassword(user, req);
         } else {
-            userLoged = {status: 'USER_DOESNT_EXISTS', message: 'Usuario o contraseña incorrecto'};
+            userLoged = {status: 'LOGIN_WRONG', message: 'User or password wrong', httpCode: 401};
         }
         return userLoged;
     }
