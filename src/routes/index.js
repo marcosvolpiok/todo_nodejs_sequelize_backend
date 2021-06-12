@@ -4,7 +4,8 @@ const moment = require('moment');
 const {
     serverRepositoryOb,
     serverControllerOb,
-    messageControllerOb
+    messageControllerOb,
+    tasksControllerOb
 } = require('../dependencies/');
 
 router.get('/servers/', serverControllerOb.list);
@@ -15,6 +16,8 @@ router.get('/messagesByServer/:id', listByServer, messageControllerOb.listByServ
 router.get('/messages/static', messageControllerOb.static);
 router.post('/messageByMessage', messageControllerOb.listByMessage);
 
+router.get('/tasks/', tasksControllerOb.list);
+router.put('/tasks/', tasksControllerOb.add);
 
 function listByServer(req, res, next){
     const schema = Joi.object({
