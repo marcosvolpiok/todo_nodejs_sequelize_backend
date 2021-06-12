@@ -8,18 +8,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id_shop: {
-        allowNull: true,
-        type: Sequelize.INTEGER
-      },
-      first_name: {
-        allowNull: true,
-        type: Sequelize.STRING
-      },
-      last_name: {
-        allowNull: true,
-        type: Sequelize.STRING
-      },
       password: {
         allowNull: true,
         type: Sequelize.STRING
