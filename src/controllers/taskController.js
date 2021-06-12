@@ -14,7 +14,7 @@ class taskController{
 
     add = async (req, res) => {
         try{
-            const task=await this.taskService.add(req.body);
+            const task=await this.taskService.add(req.body, res);
             res.json(task);
         }catch(e){
             res.status(500).json({message: e.message})

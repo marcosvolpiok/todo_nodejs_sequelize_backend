@@ -8,8 +8,8 @@ class TaskService {
     return tasks;
   }
 
-  add = async (req) => {
-    const task=await this.taskRepository.add(req);
+  add = async (req, res) => {
+    const task=await this.taskRepository.addWithUser(req, res);
     return task;
   }
 }

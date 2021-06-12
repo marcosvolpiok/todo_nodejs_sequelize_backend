@@ -13,7 +13,10 @@ class taskRepository extends Interface(baseRepository) {
     }
 
     async add (params) {
-        const task = await this.Task.create(params);
+    }
+
+    async addWithUser (params, res) {
+        const task = await this.Task.create({...params, id_user: res.userData.idUser});
         return task;
     }
 
