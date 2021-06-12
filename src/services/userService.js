@@ -4,18 +4,6 @@ class userService {
         this.bcrypt = bcrypt;
         this.loginHelper = loginHelper;
     }
-      
-    list = async (req, res) => {
-          const user=await this.userRepository.list();
-          
-          return user;
-    }
-
-    listByIdUser = async (req, res) => {
-        const user=await this.userRepository.listByIdUser(req.params.idUser);
-        
-        return user;
-    }
 
     add = async (req) => {
         const existingUser = await this.userRepository.find({where: {mail:req.body.mail}})
@@ -30,12 +18,6 @@ class userService {
         
         delete user.mail;
         console.log('xxx');
-        return user;
-    }
-
-    update = async (req, res) => {
-        const user=await this.userRepository.update(req.body);
-        
         return user;
     }
 

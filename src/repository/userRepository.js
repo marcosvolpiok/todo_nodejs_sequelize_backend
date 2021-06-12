@@ -11,21 +11,7 @@ class userRepository extends Interface(baseRepository) {
         
     }
 
-    async listByIdUser (idUser) {
-        const user = await this.User.findAll({ attributes: ['id', 'id_cart', 'id_product', 'quantity'],
-        where: {
-            id: idUser 
-        }
-     });
-
-     return user;
-    }
-    
-
     async list () {
-        const user = await this.User.findAll();
-
-        return user;
     }
 
     async find (params) {

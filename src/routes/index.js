@@ -10,8 +10,8 @@ const checkAuth = require('../middlewares/checkAuth');
 router.get('/tasks/', checkAuth, taskControllerOb.list);
 router.put('/tasks/', checkAuth, addTask, taskControllerOb.add);
 
-router.put('/user/', checkAuth, userControllerOb.add);
-router.post('/user/login/', checkAuth, userControllerOb.login);
+router.put('/user/', userControllerOb.add);
+router.post('/user/login/', userControllerOb.login);
 
 function addTask(req, res, next){
     const schema = Joi.object({
