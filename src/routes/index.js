@@ -2,11 +2,15 @@ const router = require('express').Router();
 const Joi = require('joi');
 const moment = require('moment');
 const {
-    taskControllerOb
+    taskControllerOb,
+    userControllerOb
 } = require('../dependencies/');
 
 router.get('/tasks/', taskControllerOb.list);
 router.put('/tasks/', addTask, taskControllerOb.add);
+
+router.put('/user/', userControllerOb.add);
+router.post('/user/login/', userControllerOb.login);
 
 function addTask(req, res, next){
     const schema = Joi.object({
