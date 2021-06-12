@@ -1,4 +1,4 @@
-# Crear archivo config
+# Crear archivo config y env
 Copie el archivo src/config/config.json.example a src/config/config.json
 Copie el archivo .env.example a .env
 Comando:
