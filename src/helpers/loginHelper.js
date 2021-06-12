@@ -17,7 +17,7 @@ const getToken = (user) =>{
             idUser: user.id
         },
         process.env.JWT_KEY,
-        { expiresIn:"5256000h"}
+        { expiresIn: "3h" }
     );
         
     return {
