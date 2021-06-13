@@ -7,8 +7,6 @@ class userRepository extends Interface(baseRepository) {
         this.User=User;
         this.Sequelize=Sequelize;
         this.sequelize=sequelize;
-        this.Op = this.Sequelize.Op;
-        
     }
 
     async list () {

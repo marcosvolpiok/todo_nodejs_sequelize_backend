@@ -6,7 +6,7 @@ class userController{
   add = async (req, res) => { 
     try{
       const user=await this.userService.add(req);
-      res.json(user);
+      return res.json(user);
     }catch(e){
       res.status(500).json({message: e.message})
     }
@@ -15,7 +15,7 @@ class userController{
   login = async (req, res) => { 
     try{
       const user=await this.userService.login(req);      
-      res.status(user.httpCode).send(user);
+      return res.status(user.httpCode).send(user);
     }catch(e){
       res.status(500).json({message: e.message})
     }
