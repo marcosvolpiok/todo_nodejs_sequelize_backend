@@ -22,9 +22,10 @@ const res = {
   },
   userData: {idUser: 1},
   status: function(httpCode){
-    function json(obj){
-      return obj;
-    }
+    return this;
+  },
+  send: function (obj){
+    return obj;
   }
 }
 
@@ -101,7 +102,32 @@ describe("userController", function() {
     }}
     const addResult = await userControllerOb.add(req, res);
     
-    expect(addResult.status).to.equal('USER_EXISTS');
+    expect(addResult.status).to.equal('USER_ALREADY_EXISTS');
+    
+  });
+
+
+  it("should Not login a user", async function() {
+    
+    const userAdd={
+      password: 'xxu23kn23.3ss'
+    };
+    
+    const UserMock = DBConnectionMock.define('users', userAdd, {
+        instanceMethods: {
+        },
+    });
+
+    const userRepositoryOb = new userRepository(UserMock);
+    const userServiceOb = new userService(userRepositoryOb, bcrypt, loginHelper);
+    const userControllerOb = new userController(userServiceOb);
+
+    const req = {body: {
+      password: 'xxu23kn23.3ss',
+      mail: 'exampleeee@example.com'
+    }}
+    const loginResult = await userControllerOb.login(req, res);
+    expect(loginResult.status).to.equal('LOGIN_WRONG');
     
   });
 });

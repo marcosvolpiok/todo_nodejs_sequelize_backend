@@ -15,12 +15,7 @@ const res = {
       return obj.dataValues;
     }
   },
-  userData: {idUser: 1},
-  status: function(httpCode){
-    function json(obj){
-      return obj;
-    }
-  }
+  userData: {idUser: 1}
 }
 
 describe("taskController", function() {
