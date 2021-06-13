@@ -14,8 +14,10 @@ const res = {
   json: function(obj){
     if(obj.length>0){
       return obj[0].dataValues;
-    }else{
+    }else if(obj.hasOwnProperty('dataValues')){
       return obj.dataValues;
+    }else{
+      return obj;
     }
   },
   userData: {idUser: 1},
@@ -79,5 +81,27 @@ describe("userController", function() {
     
   });
 
+  it("should return error 'user already exists'", async function() {
+    
+    const userAdd={
+    };
+    
+    const UserMock = DBConnectionMock.define('users', userAdd, {
+        instanceMethods: {
+        },
+    });
 
+    const userRepositoryOb = new userRepository(UserMock);
+    const userServiceOb = new userService(userRepositoryOb, bcrypt, loginHelper);
+    const userControllerOb = new userController(userServiceOb);
+
+    const req = {body: {
+      password: 'xxu23kn23.3ss',
+      mail: 'exampleeee@example.com'
+    }}
+    const addResult = await userControllerOb.add(req, res);
+    
+    expect(addResult.status).to.equal('USER_EXISTS');
+    
+  });
 });

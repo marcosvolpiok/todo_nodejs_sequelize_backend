@@ -8,7 +8,7 @@ class userService {
     add = async (req) => {
         const existingUser = await this.userRepository.find({where: {mail:req.body.mail}})
         if(existingUser.length !== 0){
-            return {status: "USER_EXISTS", "message": "The User exists"};
+            return {status: "USER_ALREADY_EXISTS", "message": "The User already exists"};
         }
         const hashPassword = await this.bcrypt.hash(req.body.password, 10);
         let user=await this.userRepository.add({
