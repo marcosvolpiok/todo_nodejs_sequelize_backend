@@ -8,7 +8,6 @@ const userService = require('../services/userService');
 const userModel = require('../models/user');
 const SequelizeMock = require('sequelize-mock');
 
-
 const DBConnectionMock = new SequelizeMock();
 const res = {
   json: function(obj){
@@ -40,27 +39,11 @@ describe("userController", function() {
         instanceMethods: {
         },
     });
-    /*
-    UserMock.$queueResult([
-      UserMock.build({
-        id: 1,
-        mail: "2@2.com"
-      }),
-      UserMock.build({
-        id: 2,
-        userName: "3@3.com"
-      })
-    ]);
-*/
-    
     UserMock.$queryInterface.$useHandler(function(query, queryOptions, done) {
       if (query === 'findAll') {
           if (queryOptions[0].where.mail === 'exampleeee@example.com') {
-              // Result found, return it
               return [];
-              //return UserMock.build(null);
           } else {
-              // No results
               return null;
           }
       }
@@ -110,7 +93,7 @@ describe("userController", function() {
   it("should Not login a user", async function() {
     
     const userAdd={
-      password: 'xxu23kn23.3ss'
+      password: 'xxxxxxx'
     };
     
     const UserMock = DBConnectionMock.define('users', userAdd, {
@@ -128,6 +111,31 @@ describe("userController", function() {
     }}
     const loginResult = await userControllerOb.login(req, res);
     expect(loginResult.status).to.equal('LOGIN_WRONG');
+    
+  });
+
+  it("should login a user", async function() {
+    process.env.JWT_KEY='123jjdfjdiri3243i49jfdfk';
+
+    const userAdd={
+      password: '$2b$10$k5LKhdxWW5XQk3y1oprBv.l/7IFRwjzRXojdSF6uryRFEX.tpfmtG'
+    };
+    
+    const UserMock = DBConnectionMock.define('users', userAdd, {
+        instanceMethods: {
+        },
+    });
+
+    const userRepositoryOb = new userRepository(UserMock);
+    const userServiceOb = new userService(userRepositoryOb, bcrypt, loginHelper);
+    const userControllerOb = new userController(userServiceOb);
+
+    const req = {body: {
+      password: 'xxu23kn23.3ss',
+      mail: 'exampleeee@example.com'
+    }}
+    const loginResult = await userControllerOb.login(req, res);
+    expect(loginResult.message).to.equal('Auth successful');
     
   });
 });
